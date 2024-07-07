@@ -59,10 +59,9 @@ const displayCountryDetail = country => {
         <p>Subregion: ${country.subregion}</p>
         <p>Languages: ${Object.values(country.languages).join(', ')}</p>
         <p>Currencies: ${Object.values(country.currencies).map(curr => curr.name).join(', ')}</p>
-        <hr>
     `;
     countryDetail.appendChild(countryDetailDiv);
-    displayCountries(allCountries);
+    openModal();
 }
 
 const filterCountries = () => {
@@ -72,6 +71,21 @@ const filterCountries = () => {
         country.name.official.toLowerCase().includes(searchInput)
     );
     displayCountries(filteredCountries);
+}
+
+const openModal = () => {
+    document.getElementById('country-modal').style.display = 'block';
+}
+
+const closeModal = () => {
+    document.getElementById('country-modal').style.display = 'none';
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById('country-modal');
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
 }
 
 loadCountries();

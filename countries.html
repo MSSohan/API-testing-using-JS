@@ -23,12 +23,15 @@
             <div id="loader" class="loader"></div>
             <div id="countries-container" class="grid-container"></div>
         </section>
-
-        <section>
-            <h2>Country Details</h2>
-            <div id="country-details"></div>
-        </section>
     </main>
+
+    <!-- Modal -->
+    <div id="country-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="country-details"></div>
+        </div>
+    </div>
 
     <!-- JavaScript Source File -->
     <script src="js/countries.js"></script>
