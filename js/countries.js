@@ -20,7 +20,7 @@ const displayCountries = countries => {
     const countriesContainer = document.getElementById('countries-container');
     countriesContainer.innerHTML = ''; // Clear any existing content
 
-    countries.forEach(country => {
+    countries.forEach((country, index)=> {
         const countryDiv = document.createElement('div');
         countryDiv.classList.add('country-list');
         if (country.cca2 === selectedCountryCode) {
@@ -28,7 +28,7 @@ const displayCountries = countries => {
         }
         countryDiv.innerHTML = `
             <img src="${country.flags.png}" alt="${country.name.common} flag">
-            <h2 class="country-name">${country.name.official}</h2>
+            <h2 class="country-name">${index + 1}.${country.name.official}</h2>
             <p>Known Name: ${country.name.common}</p>
             <p>Capital: ${country.capital ? country.capital[0] : 'No Capital'}</p>
             <button class="btn-details" onclick="loadCountryDetails('${country.cca2}')">Details</button>
